@@ -1,0 +1,319 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  WAKEEL — premium light enterprise theme (Linear/Stripe/21st.dev register).
+  Light is the default; dark is the toggle. Depth comes from a real elevation
+  scale (soft layered shadows) + hairlines, not flat borders. Colour comes from
+  a restrained teal accent, the agent orbs, and a very soft ambient mesh.
+*/
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-live: var(--live);
+  --color-idle: var(--idle);
+  --color-flag: var(--flag);
+  --color-incident: var(--incident);
+  --color-resolved: var(--resolved);
+  --color-hairline: var(--hairline);
+  --color-elevated: var(--elevated);
+
+  --shadow-xs: var(--shadow-xs);
+  --shadow-e1: var(--shadow-e1);
+  --shadow-e2: var(--shadow-e2);
+  --shadow-e3: var(--shadow-e3);
+  --shadow-e4: var(--shadow-e4);
+
+  --radius-sm: calc(var(--radius) * 0.55);
+  --radius-md: calc(var(--radius) * 0.75);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.3);
+  --radius-2xl: calc(var(--radius) * 1.7);
+  --radius-3xl: calc(var(--radius) * 2.2);
+}
+
+/* LIGHT — default. Bright cool-neutral, true-white elevated cards. */
+:root {
+  --radius: 0.875rem;
+
+  --background: #f5f7fb;
+  --foreground: #0b1220;
+
+  --card: #ffffff;
+  --card-foreground: #0b1220;
+  --popover: #ffffff;
+  --popover-foreground: #0b1220;
+
+  --primary: #0b9e90;
+  --primary-foreground: #ffffff;
+
+  --secondary: #eef1f7;
+  --secondary-foreground: #33415a;
+
+  --muted: #f0f3f8;
+  --muted-foreground: #64748b;
+
+  --accent: #eef2f8;
+  --accent-foreground: #0b1220;
+
+  --destructive: #ef4444;
+
+  --border: #e7ebf2;
+  --input: #dbe1eb;
+  --ring: #0b9e90;
+
+  --brand: #0b9e90;
+  --brand-foreground: #ffffff;
+  --live: #12b76a;
+  --idle: #94a3b8;
+  --flag: #f79009;
+  --incident: #f04438;
+  --resolved: #12b76a;
+  --hairline: #e9edf3;
+  --elevated: #ffffff;
+
+  --chart-1: #0b9e90;
+  --chart-2: #3b82f6;
+  --chart-3: #8b5cf6;
+  --chart-4: #f79009;
+  --chart-5: #ec4899;
+
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0b1220;
+  --sidebar-primary: #0b9e90;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #eef2f8;
+  --sidebar-accent-foreground: #0b1220;
+  --sidebar-border: #e9edf3;
+  --sidebar-ring: #0b9e90;
+
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.05);
+  --shadow-e1: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-e2: 0 2px 4px -1px rgba(15, 23, 42, 0.05), 0 4px 10px -2px rgba(15, 23, 42, 0.07);
+  --shadow-e3: 0 6px 14px -4px rgba(15, 23, 42, 0.08), 0 12px 28px -8px rgba(15, 23, 42, 0.10);
+  --shadow-e4: 0 24px 48px -16px rgba(15, 23, 42, 0.18);
+}
+
+/* DARK — vibrant "Vision UI" toggle: deep indigo/blue gradient + glass. */
+.dark {
+  --background: #070a18;
+  --foreground: #e9edfb;
+
+  --card: #101632;
+  --card-foreground: #e9edfb;
+  --popover: #121a3a;
+  --popover-foreground: #e9edfb;
+
+  --primary: #2dd4bf;
+  --primary-foreground: #04241f;
+
+  --secondary: #1a2350;
+  --secondary-foreground: #cdd5f5;
+
+  --muted: #151c3c;
+  --muted-foreground: #92a0cc;
+
+  --accent: #1b2350;
+  --accent-foreground: #e9edfb;
+
+  --destructive: #f0526b;
+
+  --border: #232c58;
+  --input: #2a3468;
+  --ring: #4f7cff;
+
+  --brand: #4f7cff;
+  --brand-foreground: #ffffff;
+  --live: #2fe0a8;
+  --idle: #7684b8;
+  --flag: #ffb547;
+  --incident: #ff5c7c;
+  --resolved: #2fe0a8;
+  --hairline: #212a55;
+  --elevated: #141c40;
+
+  --chart-1: #4f7cff;
+  --chart-2: #2fe0d0;
+  --chart-3: #a06bff;
+  --chart-4: #ffb547;
+  --chart-5: #ff5c9d;
+
+  --sidebar: #0a0f26;
+  --sidebar-foreground: #cdd5f5;
+  --sidebar-primary: #4f7cff;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #141c40;
+  --sidebar-accent-foreground: #e9edfb;
+  --sidebar-border: #212a55;
+  --sidebar-ring: #4f7cff;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-e1: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-e2: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-e3: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-e4: 0 24px 50px rgba(0, 0, 0, 0.6);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  html {
+    @apply font-sans;
+    color-scheme: light;
+  }
+  html.dark {
+    color-scheme: dark;
+  }
+  .font-display {
+    letter-spacing: -0.021em;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer utilities {
+  .shadow-e1 { box-shadow: var(--shadow-e1); }
+  .shadow-e2 { box-shadow: var(--shadow-e2); }
+  .shadow-e3 { box-shadow: var(--shadow-e3); }
+  .shadow-e4 { box-shadow: var(--shadow-e4); }
+}
+
+/*
+  Vibrant background wash. Light = soft, clean. Dark = the "Vision UI" look:
+  a deep indigo→blue gradient canvas with saturated corner blooms so glass
+  panels and glowing charts read as designed, immersive surfaces.
+*/
+.wakeel-surface {
+  position: relative;
+}
+.wakeel-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(58% 52% at 88% -6%, color-mix(in oklab, var(--brand) 14%, transparent), transparent 60%),
+    radial-gradient(52% 48% at -6% 6%, color-mix(in oklab, #2fe0d0 10%, transparent), transparent 55%),
+    radial-gradient(48% 44% at 62% 112%, color-mix(in oklab, #a06bff 9%, transparent), transparent 60%);
+}
+.dark .wakeel-surface::before {
+  background:
+    radial-gradient(70% 60% at 82% -12%, rgba(79, 124, 255, 0.42), transparent 60%),
+    radial-gradient(60% 55% at -8% 4%, rgba(47, 224, 208, 0.20), transparent 58%),
+    radial-gradient(65% 60% at 55% 120%, rgba(160, 107, 255, 0.30), transparent 62%),
+    linear-gradient(160deg, rgba(20, 28, 72, 0.55), transparent 55%);
+  opacity: 1;
+}
+.wakeel-surface > * {
+  position: relative;
+  z-index: 1;
+}
+/* Deep gradient base under everything in dark mode */
+.dark body {
+  background:
+    radial-gradient(120% 80% at 100% 0%, #131a44 0%, transparent 45%),
+    radial-gradient(100% 80% at 0% 100%, #1a1550 0%, transparent 50%),
+    var(--background);
+  background-attachment: fixed;
+}
+
+/* Glass surface for the top bar and floating chrome */
+.glass {
+  background: color-mix(in oklab, var(--background) 72%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+}
+
+/*
+  Glass panel — the primary card surface. Light: clean, near-solid white with a
+  soft elevation. Dark: translucent, blurred, gradient-edged glassmorphism over
+  the vibrant canvas.
+*/
+.glass-panel {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--hairline);
+  background: var(--card);
+  box-shadow: var(--shadow-e1);
+}
+.dark .glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02)),
+    color-mix(in oklab, var(--card) 62%, transparent);
+  backdrop-filter: saturate(150%) blur(18px);
+  -webkit-backdrop-filter: saturate(150%) blur(18px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.glass-panel-hover {
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
+}
+.glass-panel-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-e3);
+}
+.dark .glass-panel-hover:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(79, 124, 255, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
